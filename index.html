@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -53,8 +52,8 @@
                     <h3>Kişi Ətirləri</h3>
                 </div>
                 <div class="category-card" onclick="filterProducts('unisex')">
-                    <img src="/api/placeholder/300/200" alt="Uniseks Ətirləri">
-                    <h3>Uniseks Ətirləri</h3>
+                    <img src="/api/placeholder/300/200" alt="Həm Qadın Həm Kişi Ətirləri">
+                    <h3>Həm Qadın Həm Kişi</h3>
                 </div>
                 <div class="category-card" onclick="filterProducts('luxury')">
                     <img src="/api/placeholder/300/200" alt="Lüks Ətirləri">
@@ -74,7 +73,156 @@
                 <button class="filter-btn active" onclick="filterProducts('all')">Hamısı</button>
                 <button class="filter-btn" onclick="filterProducts('women')">Qadın</button>
                 <button class="filter-btn" onclick="filterProducts('men')">Kişi</button>
-                <button class="filter-btn" onclick="filterProducts('unisex')">Uniseks</button>
+                <button class="filter-btn" onclick="filterProducts('unisex')">Həm Qadın Həm Kişi</button>
+                <button class="filter-btn" onclick="filterProducts('luxury')">Lüks</button>
+            </div>
+
+            <!-- Loading Animation -->
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Məhsullar yüklənir...</p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2>Səbət</h2>
+            <button class="cart-close" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total" id="cartTotal">Cəmi: 0₼</div>
+            <button class="checkout-btn" onclick="checkout()">Sifariş Ver</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ParfumShop</h3>
+                <p>Azərbaycanda ən yaxşı ətir mağazası. Keyfiyyət və müxtəliflik bizim prioritetimizdir.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Sürətli Keçidlər</h3>
+                <ul>
+                    <li><a href="#home">Ana Səhifə</a></li>
+                    <li><a href="#products">Məhsullar</a></li>
+                    <li><a href="#categories">Kateqoriyalar</a></li>
+                    <li><a href="#about">Haqqımızda</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Müştəri Xidmətləri</h3>
+                <ul>
+                    <li><a href="#">Çatdırılma</a></li>
+                    <li><a href="#">Qaytarma Siyasəti</a></li>
+                    <li><a href="#">Sual-Cavab</a></li>
+                    <li><a href="#">Dəstək</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Əlaqə</h3>
+                <ul>
+                    <li>📞 (+994) 12 345 67 89</li>
+                    <li>📧 info@parfumshop.az</li>
+                    <li>📍 Bakı, Azərbaycan</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ParfumShop. Bütün hüquqlar qorunur.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParfumShop - Premium Ətir Mağazası</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">ParfumShop</a>
+            <ul class="nav-links">
+                <li><a href="#home">Ana Səhifə</a></li>
+                <li><a href="#categories">Kateqoriyalar</a></li>
+                <li><a href="#products">Məhsullar</a></li>
+                <li><a href="#about">Haqqımızda</a></li>
+                <li><a href="#contact">Əlaqə</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Ətir axtarın..." id="searchInput">
+                <button class="search-btn" onclick="searchProducts()">🔍</button>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Ətir Kolleksiyası</h1>
+            <p>Dünyaca məşhur brendlərin ən yaxşı ətirləri</p>
+            <a href="#products" class="cta-button">İndi Alışverişə Başlayın</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Kateqoriyalar</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterProducts('women')">
+                    <img src="/api/placeholder/300/200" alt="Qadın Ətirləri">
+                    <h3>Qadın Ətirləri</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('men')">
+                    <img src="/api/placeholder/300/200" alt="Kişi Ətirləri">
+                    <h3>Kişi Ətirləri</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('unisex')">
+                    <img src="/api/placeholder/300/200" alt="Həm Qadın Həm Kişi Ətirləri">
+                    <h3>Həm Qadın Həm Kişi</h3>
+                </div>
+                <div class="category-card" onclick="filterProducts('luxury')">
+                    <img src="/api/placeholder/300/200" alt="Lüks Ətirləri">
+                    <h3>Lüks Kolleksiya</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Məhsullar</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProducts('all')">Hamısı</button>
+                <button class="filter-btn" onclick="filterProducts('women')">Qadın</button>
+                <button class="filter-btn" onclick="filterProducts('men')">Kişi</button>
+                <button class="filter-btn" onclick="filterProducts('unisex')">Həm Qadın Həm Kişi</button>
                 <button class="filter-btn" onclick="filterProducts('luxury')">Lüks</button>
             </div>
 
