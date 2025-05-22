@@ -1,4 +1,4 @@
-// Product data
+
 const products = [
     {
         id: 1,
