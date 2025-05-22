@@ -9,7 +9,7 @@ const products = [
         oldPrice: 500,
         discount: 10,
         rating: 4.8,
-        image: "/api/placeholder/280/250",
+        image: "/images/chanelno5.png",
         description: "Klassik qadın ətri"
     },
     {
@@ -21,7 +21,7 @@ const products = [
         oldPrice: 420,
         discount: 10,
         rating: 4.7,
-        image: "/api/placeholder/280/250",
+        image: "/images/diorsauvage.png",
         description: "Güclü kişi ətri"
     },
     {
@@ -33,7 +33,7 @@ const products = [
         oldPrice: 700,
         discount: 7,
         rating: 4.9,
-        image: "/api/placeholder/280/250",
+        image: "/images/tomfordblackorchide.jpg",
         description: "Lüks uniseks ətir"
     },
     {
@@ -45,7 +45,7 @@ const products = [
         oldPrice: 360,
         discount: 11,
         rating: 4.6,
-        image: "/api/placeholder/280/250",
+        image: "/images/versacebrightcrystal.jpg",
         description: "Yaz üçün ideal"
     },
     {
@@ -57,7 +57,7 @@ const products = [
         oldPrice: 320,
         discount: 13,
         rating: 4.5,
-        image: "/api/placeholder/280/250",
+        image: "/images/hugoboss.jpg",
         description: "İş üçün mükəmməl"
     },
     {
@@ -69,7 +69,7 @@ const products = [
         oldPrice: 950,
         discount: 6,
         rating: 4.9,
-        image: "/api/placeholder/280/250",
+        image: "/images/creedaventus.jpg",
         description: "Premium ətir"
     },
     {
@@ -81,7 +81,7 @@ const products = [
         oldPrice: 450,
         discount: 7,
         rating: 4.7,
-        image: "/api/placeholder/280/250",
+        image: "/images/gucciflora.png",
         description: "Çiçək ətri"
     },
     {
@@ -93,22 +93,22 @@ const products = [
         oldPrice: 380,
         discount: 11,
         rating: 4.6,
-        image: "/api/placeholder/280/250",
+        image: "/images/jeanpaulgaultier.jpg",
         description: "Unikal dizayn"
     }
 ];
 
-// Cart functionality
+
 let cart = [];
 let favorites = [];
 
-// Initialize the page
+
 document.addEventListener('DOMContentLoaded', function() {
     loadProducts();
     updateCartCount();
 });
 
-// Load products
+
 function loadProducts(category = 'all') {
     showLoading();
     
@@ -150,7 +150,7 @@ function loadProducts(category = 'all') {
     }, 500);
 }
 
-// Show/hide loading
+
 function showLoading() {
     document.getElementById('loading').style.display = 'block';
     document.getElementById('productGrid').style.display = 'none';
@@ -161,9 +161,9 @@ function hideLoading() {
     document.getElementById('productGrid').style.display = 'grid';
 }
 
-// Filter products
+
 function filterProducts(category) {
-    // Update active filter button
+
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.classList.remove('active');
     });
@@ -172,7 +172,7 @@ function filterProducts(category) {
     loadProducts(category);
 }
 
-// Search products
+
 function searchProducts() {
     const searchTerm = document.getElementById('searchInput').value.toLowerCase();
     const productCards = document.querySelectorAll('.product-card');
@@ -189,7 +189,7 @@ function searchProducts() {
     });
 }
 
-// Add to cart
+
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const existingItem = cart.find(item => item.id === productId);
@@ -203,7 +203,7 @@ function addToCart(productId) {
     updateCartCount();
     updateCartDisplay();
     
-    // Success animation
+
     event.target.textContent = 'Əlavə Edildi!';
     event.target.style.background = '#4caf50';
     setTimeout(() => {
@@ -212,14 +212,14 @@ function addToCart(productId) {
     }, 1000);
 }
 
-// Remove from cart
+
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     updateCartCount();
     updateCartDisplay();
 }
 
-// Update quantity
+
 function updateQuantity(productId, change) {
     const item = cart.find(item => item.id === productId);
     if (item) {
@@ -233,7 +233,7 @@ function updateQuantity(productId, change) {
     }
 }
 
-// Toggle favorite
+
 function toggleFavorite(productId) {
     const index = favorites.indexOf(productId);
     if (index > -1) {
@@ -242,13 +242,13 @@ function toggleFavorite(productId) {
         favorites.push(productId);
     }
     
-    // Update UI
+
     const favoriteBtn = event.target;
     favoriteBtn.textContent = favorites.includes(productId) ? '❤️' : '🤍';
     favoriteBtn.classList.toggle('active');
 }
 
-// Toggle cart sidebar
+
 function toggleCart() {
     const cartSidebar = document.getElementById('cartSidebar');
     const cartOverlay = document.getElementById('cartOverlay');
@@ -261,13 +261,13 @@ function toggleCart() {
     }
 }
 
-// Update cart count
+
 function updateCartCount() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     document.getElementById('cartCount').textContent = totalItems;
 }
 
-// Update cart display
+
 function updateCartDisplay() {
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
@@ -298,7 +298,7 @@ function updateCartDisplay() {
     cartTotal.textContent = `Cəmi: ${total}₼`;
 }
 
-// Checkout function
+
 function checkout() {
     if (cart.length === 0) {
         alert('Səbət boşdur!');
@@ -308,14 +308,14 @@ function checkout() {
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     alert(`Sifarişiniz qəbul edildi! Cəmi: ${total}₼`);
     
-    // Clear cart
+
     cart = [];
     updateCartCount();
     updateCartDisplay();
     toggleCart();
 }
 
-// Smooth scroll for navigation links
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -329,14 +329,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Search on Enter key
+
 document.getElementById('searchInput').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         searchProducts();
     }
 });
 
-// Close cart when clicking outside
 document.addEventListener('click', function(e) {
     const cartSidebar = document.getElementById('cartSidebar');
     const cartIcon = document.querySelector('.cart-icon');
