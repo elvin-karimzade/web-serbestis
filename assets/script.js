@@ -9,7 +9,7 @@ const products = [
         oldPrice: 500,
         discount: 10,
         rating: 4.8,
-        image: "/images/chanelno5.png",
+        image: "assets/images/chanelno5.png",
         description: "Klassik qadın ətri"
     },
     {
@@ -21,7 +21,7 @@ const products = [
         oldPrice: 420,
         discount: 10,
         rating: 4.7,
-        image: "/images/diorsauvage.png",
+        image: "assets/images/diorsauvage.png",
         description: "Güclü kişi ətri"
     },
     {
@@ -33,7 +33,7 @@ const products = [
         oldPrice: 700,
         discount: 7,
         rating: 4.9,
-        image: "/images/tomfordblackorchide.jpg",
+        image: "assets/images/tomfordblackorchide.jpg",
         description: "Lüks uniseks ətir"
     },
     {
@@ -45,7 +45,7 @@ const products = [
         oldPrice: 360,
         discount: 11,
         rating: 4.6,
-        image: "/images/versacebrightcrystal.jpg",
+        image: "assets/images/versacebrightcrystal.jpg",
         description: "Yaz üçün ideal"
     },
     {
@@ -57,7 +57,7 @@ const products = [
         oldPrice: 320,
         discount: 13,
         rating: 4.5,
-        image: "/images/hugoboss.jpg",
+        image: "assets/images/hugoboss.jpg",
         description: "İş üçün mükəmməl"
     },
     {
@@ -69,7 +69,7 @@ const products = [
         oldPrice: 950,
         discount: 6,
         rating: 4.9,
-        image: "/images/creedaventus.jpg",
+        image: "assets/images/creedaventus.jpg",
         description: "Premium ətir"
     },
     {
@@ -81,7 +81,7 @@ const products = [
         oldPrice: 450,
         discount: 7,
         rating: 4.7,
-        image: "/images/gucciflora.png",
+        image: "assets/images/gucciflora.png",
         description: "Çiçək ətri"
     },
     {
@@ -93,7 +93,7 @@ const products = [
         oldPrice: 380,
         discount: 11,
         rating: 4.6,
-        image: "/images/jeanpaulgaultier.jpg",
+        image: "assets/images/jeanpaulgaultier.jpg",
         description: "Unikal dizayn"
     }
 ];
